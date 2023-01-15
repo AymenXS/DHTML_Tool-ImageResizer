@@ -58,3 +58,4 @@ const resizeAndDownload = () => {
 downloadBtn.addEventListener("click", resizeAndDownload);
 fileInput.addEventListener("change", loadFile);
 uploadBox.addEventListener("click", () => fileInput.click());
+test
