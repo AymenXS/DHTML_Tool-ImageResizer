@@ -50,12 +50,11 @@ const resizeAndDownload = () => {
   // Drawing user selected image onto the canvas
   ctx.drawImage(previewImg, 0, 0, canvas.width, canvas.height);
 
-  a.href = canvas.toDataURL("image/jpeg", imgQuality)
+  a.href = canvas.toDataURL("image/jpeg", imgQuality);
   a.download = new Date().getTime(); // Passing current time as download value
   a.click(); // Clicking <a> element so the file download
+};
 
-}
-
-downloadBtn.addEventListener('click', resizeAndDownload)
+downloadBtn.addEventListener("click", resizeAndDownload);
 fileInput.addEventListener("change", loadFile);
 uploadBox.addEventListener("click", () => fileInput.click());
