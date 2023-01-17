@@ -7,7 +7,7 @@ const uploadBox = document.querySelector(".upload-box"),
   qualityInput = document.querySelector(".quality input"),
   downloadBtn = document.querySelector(".download-btn");
 
-let ogImageRatio;
+let imageRatio;
 
 const loadFile = (e) => {
   const file = e.target.files[0]; // Getting first user selected file
@@ -17,20 +17,20 @@ const loadFile = (e) => {
     // Once the IMG is loaded
     widthInput.value = previewImg.naturalWidth;
     heightInput.value = previewImg.naturalHeight;
-    ogImageRatio = previewImg.naturalWidth / previewImg.naturalHeight;
+    imageRatio = previewImg.naturalWidth / previewImg.naturalHeight;
     document.querySelector(".wrapper").classList.add("active");
   });
 };
 
 widthInput.addEventListener("keyup", () => {
   // Getting Height according to the ratio checkbox status
-  const height = ratioInput.checked ? widthInput.value / ogImageRatio : heightInput.value;
+  const height = ratioInput.checked ? widthInput.value / imageRatio : heightInput.value;
   heightInput.value = Math.floor(height);
 });
 
 heightInput.addEventListener("keyup", () => {
   // Getting Height according to the ratio checkbox status
-  const width = ratioInput.checked ? heightInput.value * ogImageRatio : widthInput.value;
+  const width = ratioInput.checked ? heightInput.value * imageRatio : widthInput.value;
   widthInput.value = Math.floor(width);
 });
 
