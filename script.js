@@ -9,6 +9,8 @@ const uploadBox = document.querySelector(".upload-box"),
 
 let imageRatio;
 
+fileInput.addEventListener("change", loadFile);
+
 const loadFile = (e) => {
   const file = e.target.files[0]; // Getting first user selected file
   if (!file) return; // Return if no file is selected
@@ -22,6 +24,8 @@ const loadFile = (e) => {
   });
 };
 
+uploadBox.addEventListener("click", () => fileInput.click());
+
 widthInput.addEventListener("keyup", () => {
   // Getting Height according to the ratio checkbox status
   const height = ratioInput.checked ? widthInput.value / imageRatio : heightInput.value;
@@ -33,6 +37,8 @@ heightInput.addEventListener("keyup", () => {
   const width = ratioInput.checked ? heightInput.value * imageRatio : widthInput.value;
   widthInput.value = Math.floor(width);
 });
+
+downloadBtn.addEventListener("click", resizeAndDownload);
 
 const resizeAndDownload = () => {
   const canvas = document.createElement("canvas");
@@ -55,6 +61,4 @@ const resizeAndDownload = () => {
   a.click(); // Clicking <a> element so the file download
 };
 
-downloadBtn.addEventListener("click", resizeAndDownload);
-fileInput.addEventListener("change", loadFile);
-uploadBox.addEventListener("click", () => fileInput.click());
+
