@@ -60,5 +60,3 @@ const resizeAndDownload = () => {
   a.download = new Date().getTime(); // Passing current time as download value
   a.click(); // Clicking <a> element so the file download
 };
-
-
